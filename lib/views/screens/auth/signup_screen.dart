@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_tiktok/controllers/auth_controller.dart';
-
 import '../../../constants.dart';
 import '../../widgets/text_input_field.dart';
 

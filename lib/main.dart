@@ -2,10 +2,8 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_tiktok/constants.dart';
 import 'package:flutter_tiktok/controllers/auth_controller.dart';
+import 'package:flutter_tiktok/views/screens/auth/login_screen.dart';
 import 'package:get/get.dart';
-
-import 'views/screens/auth/login_screen.dart';
-import 'views/screens/auth/signup_screen.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();

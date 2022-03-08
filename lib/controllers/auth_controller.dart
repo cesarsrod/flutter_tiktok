@@ -16,10 +16,10 @@ class AuthController extends GetxController {
   late Rx<File?> _pickedImage;
 
   File? get profilePhoto => _pickedImage.value;
+  User get user => _user.value!;
 
   @override
   void onReady() {
-    // TODO: implement onReady
     super.onReady();
     _user = Rx<User?>(firebaseAuth.currentUser);
     _user.bindStream(firebaseAuth.authStateChanges());
@@ -65,7 +65,7 @@ class AuthController extends GetxController {
           email.isNotEmpty &&
           password.isNotEmpty &&
           image != null) {
-        //sabe user to auth andd firebase firestore
+        //save user to auth andd firebase firestore
         UserCredential cred = await firebaseAuth.createUserWithEmailAndPassword(
             email: email, password: password);
         String downloadUrl = await _uploadToStorage(image);
@@ -81,24 +81,24 @@ class AuthController extends GetxController {
             .set(user.toJson());
       } else {
         Get.snackbar(
-          'Error Creating and Account',
+          'Error Creating an Account',
           'Please enter all the fields',
         );
       }
     } catch (e) {
       Get.snackbar(
-        'Error Creating and Account',
+        'Error Creating an Account',
         e.toString(),
       );
     }
   }
 
   void loginUser(String email, String password) async {
-    await firebaseAuth.signInWithEmailAndPassword(
-        email: email, password: password);
-    print('log success');
     try {
       if (email.isNotEmpty && password.isNotEmpty) {
+        await firebaseAuth.signInWithEmailAndPassword(
+            email: email, password: password);
+        print('log success');
       } else {
         Get.snackbar('Error loggin in', 'PLease enter all the fields');
       }

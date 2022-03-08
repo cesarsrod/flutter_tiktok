@@ -39,6 +39,12 @@ class _ConfirmScreenState extends State<ConfirmScreen> {
     controller.setLooping(true);
   }
 
+  @override
+  void dispose() {
+    super.dispose();
+    controller.dispose();
+  }
+
   Widget build(BuildContext context) {
     return Scaffold(
       body: SingleChildScrollView(
