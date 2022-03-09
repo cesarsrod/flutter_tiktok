@@ -106,4 +106,8 @@ class AuthController extends GetxController {
       Get.snackbar('Error loggin in', e.toString());
     }
   }
+
+  void signOut() async {
+    await firebaseAuth.signOut();
+  }
 }

@@ -3,6 +3,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_tiktok/controllers/auth_controller.dart';
+import 'package:flutter_tiktok/views/screens/profile_screen.dart';
 import 'package:flutter_tiktok/views/screens/search_screen.dart';
 import 'package:flutter_tiktok/views/screens/video_screen.dart';
 
@@ -13,7 +14,7 @@ List pages = [
   SearchScreen(),
   const AddVideoScreen(),
   Text('Message Screeen'),
-  Text('Profile Screeen'),
+  ProfileScreen(uid: authController.user.uid),
 ];
 
 //COLORS

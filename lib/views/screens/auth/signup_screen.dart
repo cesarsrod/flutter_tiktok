@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_tiktok/views/screens/auth/login_screen.dart';
 import '../../../constants.dart';
 import '../../widgets/text_input_field.dart';
 
@@ -113,9 +114,11 @@ class SignupScreen extends StatelessWidget {
                 const Text('Already have an account ? ',
                     style: TextStyle(fontSize: 20)),
                 InkWell(
-                  onTap: () {
-                    print('navigate user');
-                  },
+                  onTap: () => Navigator.of(context).push(
+                    MaterialPageRoute(
+                      builder: (context) => LoginScreen(),
+                    ),
+                  ),
                   child: Text('Login',
                       style: TextStyle(fontSize: 20, color: buttonColor)),
                 )
